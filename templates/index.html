@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Title</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-indigo-100">
+<div class="flex h-screen items-center justify-center">
+    <div class="m-auto">
+        <div class="grid grid-cols-1 gap-6">
+            <div class="relative bg-white py-6 px-6 rounded-3xl shadow-xl">
+                <div>
+                    Pool is
+                    {% if pool.status == False %}
+                      Closed
+                    {% else %}
+                      Open
+                    {% endif %}
+                </div>
+                <div>
+                    Water temp is
+                    {{ pool.water_temp }}
+                </div>
+                <div>
+                    Last update:
+                    {{ pool.last_update | datetimefilter }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
