@@ -1,0 +1,8 @@
+pytz
+flask
+datetime
+app
+flask_sqlalchemy
+config
+python-dotenv
+
