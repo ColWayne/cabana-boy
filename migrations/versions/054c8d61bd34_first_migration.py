@@ -1,8 +1,8 @@
-"""empty message
+"""First migration
 
-Revision ID: 0666b201a8db
+Revision ID: 054c8d61bd34
 Revises: 
-Create Date: 2021-05-06 16:48:43.383065
+Create Date: 2021-05-11 09:39:53.429728
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0666b201a8db'
+revision = '054c8d61bd34'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,9 +22,9 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('status', sa.Boolean(), nullable=False),
     sa.Column('water_temp', sa.Float(), nullable=False),
-    sa.Column('uv_level', sa.String(), nullable=False),
+    sa.Column('uv_level', sa.String(length=5), nullable=False),
     sa.Column('uv_time', sa.Integer(), nullable=False),
-    sa.Column('weather_conditions', sa.Float(), nullable=False),
+    sa.Column('weather_conditions', sa.String(length=255), nullable=False),
     sa.Column('outside_temp', sa.Float(), nullable=False),
     sa.Column('last_update', sa.DateTime(), nullable=False),
     sa.PrimaryKeyConstraint('id')

@@ -1,8 +1,7 @@
-from app import app
-#
-# if __name__ == '__main__':
-#     if not os.path.exists('db.sqlite'):
-#         db.create_all()
-#         pool = Pool(status=False, water_temp='0')
-#         db.session.add(pool)
-#         db.session.commit()
+from app import app, db
+from app.models import Token, Pool
+
+
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'Token': Token, 'Pool': Pool}
